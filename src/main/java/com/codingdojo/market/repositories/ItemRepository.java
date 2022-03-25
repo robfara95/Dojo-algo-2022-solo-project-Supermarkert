@@ -14,6 +14,9 @@ public interface ItemRepository extends CrudRepository<Item, Long>{
 	List<Item> findAllByOrderByItemDescriptionAsc();
 	@Query("SELECT d FROM Item d WHERE itemDescription = ?1")	
 	List<Item> getItemWhereItemDescription(String item);
+	@Query("SELECT i FROM Item i WHERE i.itemDescription LIKE %?1%")
+	List<Item> getAllItemsContains(String name);
+	
 	@Query("SELECT d FROM Item d WHERE category = ?1")	
 	List<Item> getItemWhereCategory(String item);
 }

@@ -72,8 +72,8 @@ public class User {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String name) {		
+		this.name = name.trim();
 	}
 
 	public String getEmail() {
@@ -81,7 +81,7 @@ public class User {
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.email = email.trim();
 	}
 
 	public String getPassword() {

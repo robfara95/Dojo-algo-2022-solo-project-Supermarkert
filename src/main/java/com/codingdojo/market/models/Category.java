@@ -1,12 +1,11 @@
 package com.codingdojo.market.models;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -16,9 +15,8 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty()
-	@Size(min = 3, max = 30, message="Category must be between type 3 & 30 chars")
-	@Column(unique=true)
+	@NotBlank(message="Category required")
+	@Size(min = 3, max = 30, message="Category must be between 3 & 30 chars")
 	private String category;	
 
     public Category() {}

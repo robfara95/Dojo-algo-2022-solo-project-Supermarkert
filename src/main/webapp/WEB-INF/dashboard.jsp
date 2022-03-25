@@ -23,7 +23,10 @@
 		      </li>		
 		      <li class="nav-item active">
 		        <a class="nav-link" href="/supermarkets">Supermarket</a> 
-		      </li>		      
+		      </li>	
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/category">Category</a> 
+		      </li>			      
 		      <li class="nav-item">
 		        <a class="nav-item nav-link" href="/logout">Logout</a>
 		      </li>	

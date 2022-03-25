@@ -35,7 +35,7 @@
 			    		<div class="form-group">
 			    			<form:label path="confirm">confirm:</form:label>
 			    			<form:errors class="text-danger" path="confirm"/>	        
-			        		<form:input class="form-control" path="confirm"/>
+			        		<form:input type="password" class="form-control" path="confirm"/>
 			    		</div>
 			    		<input type="submit" value="Register" class="btn btn-primary mt-2"/>
 			    			

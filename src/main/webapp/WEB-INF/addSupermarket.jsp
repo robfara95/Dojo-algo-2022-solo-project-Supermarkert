@@ -20,7 +20,7 @@
 		      </li>
 		      <li class="nav-item active">
 		        <a class="nav-link disabled" href="/supermarkets">Supermarket</a> 
-		      </li>		      
+		      </li>			           
 		      <li class="nav-item">
 		        <a class="nav-item nav-link" href="/logout">Logout</a>
 		      </li>	

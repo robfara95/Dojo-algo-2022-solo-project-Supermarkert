@@ -4,6 +4,7 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 
 import com.codingdojo.market.models.LoginUser;
 import com.codingdojo.market.models.User;
@@ -14,10 +15,26 @@ public class UserService {
     @Autowired
     private UserRepository repository;
     
+	//Validate User for Duplicate email and password
+	public void validate (User user, Errors errors) {
+		if (errors.getErrorCount() > 0 ) {
+			return;
+		}
+		
+		if (!user.getConfirm().equals(user.getPassword())) {
+			errors.rejectValue("password", "Not Found", "Password does not match confirm password");
+		}
+		
+		if (repository.findByEmail(user.getEmail()) != null) {
+			errors.rejectValue("email", "dup", "Email already exists");
+		}	
+	}
+    
 	// register user and has their password
 	public User registerUser(User user) {
 		String hashedPassword= BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
 		user.setPassword(hashedPassword);
+		//user.setName(user.getName().trim());
 		
 		return repository.save(user);		
 	}
@@ -63,4 +80,6 @@ public class UserService {
 
     	return currentUser;  
     }
+	
+	
 }

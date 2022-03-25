@@ -29,7 +29,7 @@
 	</nav>
 	
 	<h1 class="text-center">Edit Item</h1>
-	<h5 class="text-center">Supermarket Item Information Reported by <c:out value="${user.name}"/> on <fmt:formatDate value="${item.createdAt}" type="date" pattern="M/d/yyyy h:mm a"/></h5>
+	<h5 class="text-center">Supermarket Item Information Originally Reported by <c:out value="${item.user.name}"/> on <fmt:formatDate value="${item.createdAt}" type="date" pattern="M/d/yyyy h:mm a"/></h5>
 	
 	<div class="container border border-primary">
 			<form:form action="/items/${item.id}/edit" method="post" modelAttribute="item">						
